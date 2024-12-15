@@ -7,7 +7,7 @@ export interface IControlStateChanged {
 }
 
 @Directive({
-  selector: '[formControlStateToggler]', // Updated to the more concise name
+  selector: '[formControlStateToggler]', 
   standalone: true,
 })
 export class FormControlStateTogglerDirective implements OnInit, OnDestroy {
