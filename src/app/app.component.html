@@ -1,2 +1,42 @@
-<h1>{{title}}</h1>
-<router-outlet />
+<mat-drawer-container class="h-screen" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="over">
+    <div class="flex h-full flex-col">
+      <div class="flex h-20 flex-row items-center justify-center bg-slate-500 px-7 text-white">
+        <mat-icon
+          [routerLink]="['/']"
+          (click)="drawer.toggle()"
+          aria-hidden="false"
+          class="mr-3 cursor-pointer"
+          aria-label="close icon"
+          fontIcon="home"
+        ></mat-icon>
+        <div class="flex-grow">Examples</div>
+        <div class="cursor-pointer" (click)="drawer.toggle()">
+          <mat-icon aria-hidden="false" aria-label="close icon" fontIcon="close"></mat-icon>
+        </div>
+      </div>
+      <mat-list role="list">
+        <mat-list-item
+          class="cursor-pointer"
+          role="listitem"
+          [routerLink]="['/example-custom-form-state-directive']"
+          [routerLinkActive]="'bg-gray-600'"
+          (click)="drawer.toggle()"
+        >
+          <span matListItemTitle>Custom Directive</span>
+          <span matListItemLine>Input Control State Change</span>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <button
+      mat-raised-button
+      class="fixed bottom-3 flex rounded-r-lg bg-slate-500 px-2 py-3 text-white"
+      (click)="drawer.toggle()"
+    >
+      <mat-icon aria-hidden="false" aria-label="chevron right icon" fontIcon="chevron_right"></mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
