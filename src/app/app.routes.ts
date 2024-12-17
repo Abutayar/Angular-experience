@@ -1,14 +1,15 @@
 import { Routes } from '@angular/router';
-import { ExampleInputStateBasedOnCheckboxComponent } from './pages/example-input-state-based-on-checkbox/example-input-state-based-on-checkbox.component';
-import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: HomeComponent
-    },
-    {
-        path: 'example-custom-form-state-directive',
-        component: ExampleInputStateBasedOnCheckboxComponent
-    }
+  {
+    path: '',
+    loadComponent:() => import('./pages/home/home.component').then(c => c.HomeComponent)
+  },
+  {
+    path: 'example-custom-form-state-directive',
+    loadComponent: () =>
+      import('./pages/example-input-state-based-on-checkbox/example-input-state-based-on-checkbox.component').then(
+        (c) => c.ExampleInputStateBasedOnCheckboxComponent,
+      ),
+  },
 ];
