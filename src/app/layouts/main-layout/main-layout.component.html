@@ -1,0 +1,17 @@
+<mat-drawer-container class="h-screen" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="over">
+    @defer {
+      <app-sidebar [drawer]="drawer" />
+    }
+  </mat-drawer>
+  <mat-drawer-content>
+    <button
+      mat-raised-button
+      class="fixed bottom-3 flex rounded-r-lg bg-slate-500 px-2 py-3 text-white"
+      (click)="drawer.toggle()"
+    >
+      <mat-icon aria-hidden="false" aria-label="chevron right icon" fontIcon="chevron_right"></mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
