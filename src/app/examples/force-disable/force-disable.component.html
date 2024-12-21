@@ -1,0 +1,25 @@
+<form [formGroup]="demoForm" class="mx-auto mt-8 flex w-1/3 flex-col gap-4">
+  <mat-form-field>
+    <mat-label>Default</mat-label>
+    <input formControlName="default" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Using Reactive Form </mat-label>
+    <input formControlName="ng" matInput forceInputDisable />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Using Mutation</mat-label>
+    <input formControlName="dom" matInput forceInputDisable method="dom" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Using Both</mat-label>
+    <input formControlName="both" matInput forceInputDisable method="both" />
+  </mat-form-field>
+  <hr />
+  <pre
+    >{{ demoForm.value | json }}
+  </pre>
+</form>

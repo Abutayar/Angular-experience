@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent:() => import('./pages/home/home.component').then(c => c.HomeComponent)
+    loadComponent: () => import('./pages/home/home.component').then((c) => c.HomeComponent),
   },
   {
     path: 'example-custom-form-state-directive',
@@ -11,5 +11,10 @@ export const routes: Routes = [
       import('./pages/example-input-state-based-on-checkbox/example-input-state-based-on-checkbox.component').then(
         (c) => c.ExampleInputStateBasedOnCheckboxComponent,
       ),
+  },
+  {
+    path: 'example-force-disable',
+    loadComponent: () =>
+      import('./examples/force-disable/force-disable.component').then((c) => c.ForceDisableComponent),
   },
 ];
