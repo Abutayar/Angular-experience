@@ -1,0 +1,36 @@
+<div class="py-24">
+  <h2 class="text-center text-2xl font-bold">Password Comparison</h2>
+  <form [formGroup]="passwordForm" class="mx-auto mt-8 flex w-2/3 flex-col gap-4">
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input formControlName="confirmPassword" matInput compareWith="password" />
+      @let confirmPasswordCtl = passwordForm.get("confirmPassword");
+      @if (confirmPasswordCtl?.errors?.["comparison"]) {
+        <mat-error>Password Mismatch</mat-error>
+      }
+    </mat-form-field>
+  </form>
+  <hr class="my-6" />
+
+  <h2 class="text-center text-2xl font-bold">Amount Comparison</h2>
+  <form [formGroup]="billForm" class="mx-auto mt-8 flex w-2/3 flex-col gap-4">
+    <mat-form-field>
+      <mat-label>Received Amount</mat-label>
+      <input formControlName="received" matInput />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Refund Amount</mat-label>
+      <input formControlName="refund" matInput compareWith="received" operation="LTEQ" />
+      @let refundCtl = billForm.get("refund");
+      @if (refundCtl?.errors?.["comparison"]) {
+        <mat-error>Refund Can't be more than received</mat-error>
+      }
+    </mat-form-field>
+  </form>
+</div>
