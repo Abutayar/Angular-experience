@@ -24,6 +24,7 @@
       <span matListItemTitle>Custom Directive</span>
       <span matListItemLine>Input Control State Change</span>
     </mat-list-item>
+
     <mat-list-item
       class="cursor-pointer"
       role="listitem"
@@ -33,6 +34,17 @@
     >
       <span matListItemTitle>Custom Enforcer Directive</span>
       <span matListItemLine>Input State Enforcer</span>
+    </mat-list-item>
+
+    <mat-list-item
+      class="cursor-pointer"
+      role="listitem"
+      [routerLink]="['/example-comparison']"
+      [routerLinkActive]="'bg-gray-600'"
+      (click)="drawer().toggle()"
+    >
+      <span matListItemTitle>Custom Validator Directive</span>
+      <span matListItemLine>Comparison Validator</span>
     </mat-list-item>
   </mat-list>
 </div>
