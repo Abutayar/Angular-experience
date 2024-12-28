@@ -17,4 +17,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./examples/force-disable/force-disable.component').then((c) => c.ForceDisableComponent),
   },
+  {
+    path: 'example-comparison',
+    loadComponent: () =>
+      import('./examples/comparison-example/comparison-example.component').then((c) => c.ComparisonExampleComponent),
+  },
 ];
